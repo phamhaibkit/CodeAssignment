@@ -1,0 +1,30 @@
+<div id="task-list">
+  <p-card>
+    <ng-template pTemplate="header">
+      <div class="header">
+        <p class="title">{{title}}</p>
+        <p-button label="Add Task" icon="pi pi-plus" (onClick)="onDetail(-1)"></p-button>
+      </div>
+  </ng-template>
+    <p-table [value]="tasks" responsiveLayout="scroll" [loading]="loading">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Number</th>
+              <th>Description</th>
+              <th>Assignee</th>
+              <th>Status</th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-task>
+          <tr>
+              <td>{{task.id + 1}}</td>
+              <td>{{task.description}}</td>
+              <td>{{task.assignee}}</td>
+              <td><i class="pi" [ngClass]="{'true-icon pi-check-circle': task.completed, 'false-icon pi-times-circle': !task.completed}"></i></td>
+              <td><p-button icon="pi pi-user-edit" (onClick)="onDetail(task.id)"></p-button></td>
+          </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>

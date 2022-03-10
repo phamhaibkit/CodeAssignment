@@ -1,0 +1,21 @@
+#task-list {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    .title {
+      font-weight: bold;
+    }
+  }
+  
+  .true-icon {
+    color: green;
+    font-size: 24px;
+  }
+  
+  .false-icon {
+    color: red;
+    font-size: 24px;
+  }
+}

@@ -1,0 +1,27 @@
+<div id="task-detail">
+  <p-progressSpinner *ngIf="loading; else form" [style]="{width: '50px', height: '50px'}"></p-progressSpinner>
+  <ng-template #form>
+    <p-card [header]="id === '-1' ? 'Add new task' : 'Task detail'">
+      <form [formGroup]="taskForm" (submit)="onSave()">
+        <p>Description</p>
+        <textarea rows="5" cols="30" pInputTextarea formControlName="description"></textarea>
+        <p>Assignee</p>
+        <p-dropdown [options]="users" formControlName="assigneeId" placeholder="Select a person"></p-dropdown>
+        <p *ngIf="id !== '-1'">Completed</p>
+        <p-inputSwitch *ngIf="id !== '-1'" formControlName="completed"></p-inputSwitch>
+        <div
+          *ngIf="taskForm.controls['description'].invalid && (taskForm.controls['description'].dirty || taskForm.controls['description'].touched)">
+          <div *ngIf="taskForm.controls['description'].errors.required" class="error">
+            Description is required.
+          </div>
+        </div>
+        <div class="btn-group">
+          <p-button label="Back" icon="pi pi-times" (onClick)="onCancel()" class="btn-cancel"></p-button>
+          <p-button label="Save" icon="pi pi-check" type="submit" class="btn-save"></p-button>
+        </div>
+      </form>
+    </p-card>
+  </ng-template>
+</div>
+
+<p-toast></p-toast>

@@ -1,0 +1,28 @@
+#task-detail ::ng-deep {
+  display: flex;
+  justify-content: center;
+  .p-card {
+    max-width: 500px;
+    margin: 0 auto;
+    .btn-group {
+      margin-top: 16px;
+      .btn-cancel {
+        .p-button {
+          background-color: gainsboro;
+          border: 1px solid gainsboro;
+          color: black;
+        }
+      }
+      .btn-save {
+        .p-button {
+          background-color: green;
+          border: 1px solid green;
+        }
+        margin-left: 8px;
+      }
+    }
+    .error {
+      color: red;
+    }
+  }
+}
